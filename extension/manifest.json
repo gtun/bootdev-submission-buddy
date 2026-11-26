@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Boot.dev Submission Buddy",
+  "version": "1.0.0",
+  "description": "Adds a button to boot.dev lesson pages that copies the lesson ID to your clipboard.",
+  "content_scripts": [
+    {
+      "matches": ["https://www.boot.dev/*", "https://boot.dev/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

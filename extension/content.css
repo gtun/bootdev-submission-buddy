@@ -1,0 +1,65 @@
+#bdlip-copy-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2147483647;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid #e8b53a;
+  background: #3b2412;
+  color: #e8b53a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+  opacity: 0.92;
+  transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease,
+    color 0.15s ease;
+  padding: 0;
+}
+
+#bdlip-copy-btn:hover {
+  opacity: 1;
+  transform: scale(1.08);
+  background: #4a2e17;
+  color: #f7cd5c;
+  border-color: #f7cd5c;
+}
+
+#bdlip-copy-btn.bdlip-ok {
+  background: #3b2412;
+  color: #f7cd5c;
+  border-color: #f7cd5c;
+  box-shadow: 0 0 0 4px rgba(232, 181, 58, 0.35), 0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+#bdlip-toast {
+  position: fixed;
+  right: 96px;
+  bottom: 40px;
+  z-index: 2147483647;
+  padding: 7px 12px;
+  border-radius: 6px;
+  border: 1px solid #e8b53a;
+  background: #3b2412;
+  color: #f7cd5c;
+  font: 13px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateX(6px);
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+#bdlip-toast.bdlip-show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#bdlip-toast.bdlip-error {
+  background: #7f1d1d;
+  border-color: #fca5a5;
+  color: #fee2e2;
+}
