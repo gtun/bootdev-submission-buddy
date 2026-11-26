@@ -8,6 +8,36 @@ you.
 
 > Not affiliated with or endorsed by Boot.dev.
 
+## Quick start
+
+1. **Add the skill.** Copy `skills/submit/` to `~/.claude/skills/` to use it
+   in every project, or to `<course-repo>/.claude/skills/` for one project.
+   ```bash
+   mkdir -p ~/.claude/skills && cp -r skills/submit ~/.claude/skills/
+   ```
+2. **Load the extension.** In `chrome://extensions`, turn on
+   **Developer mode**, click **Load unpacked**, and pick the `extension/`
+   folder.
+3. **Do your Boot.dev lesson** as usual.
+4. **Give your assistant the checks.** Paste the lesson's
+   **"The CLI will run these checks"** block into the chat, anywhere in the
+   session:
+
+   <img src="docs/checks-example.png" alt="A lesson's 'The CLI will run these checks' block" width="420">
+5. **Copy the lesson ID** by clicking the button in the bottom-right corner
+   of the lesson page:
+   <img src="docs/copy-button.png" alt="The copy-lesson-ID button" width="40">
+6. **Run the skill** with the ID:
+   ```
+   /submit c836a818-eb0b-4d65-94f5-d8fba46db0e1
+   ```
+
+If every check passes, it submits the lesson. If anything fails, it shows
+you what failed and doesn't submit.
+
+You need the [Boot.dev CLI](https://github.com/bootdotdev/bootdev)
+installed and logged in. Details are below.
+
 ## How it works
 
 This repo has two parts that work together:
@@ -27,15 +57,8 @@ Boot.dev decides whether a lesson passes on its own servers. Running
 `bootdev run <id>` without `-s` only shows your program's output. It
 doesn't print PASS or FAIL. So the assistant needs the lesson's checks,
 the block on the lesson page that starts with **"The CLI will run these
-checks"**, to know what counts as passing. For example:
-
-```
-The CLI will run these checks:
-  Run 'go run .'
-    Expecting exit code: 0
-    Expecting stdout to contain all of:
-      - Hello, World!
-```
+checks"**, to know what counts as passing (see the screenshot in
+[Quick start](#quick-start)).
 
 The skill only treats a check as passed when it can confirm it exactly:
 
@@ -151,7 +174,8 @@ skills/
   submit/
     SKILL.md      The /submit skill
 docs/
-  copy-button.png Screenshot of the copy button
+  copy-button.png    Screenshot of the copy button
+  checks-example.png Example of a lesson's checks block
 ```
 
 ## Contributing
